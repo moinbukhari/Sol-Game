@@ -1,0 +1,130 @@
+{
+  "version": "0.1.0",
+  "name": "nftgame",
+  "instructions": [
+    {
+      "name": "initialize",
+      "accounts": [
+        {
+          "name": "baseAccount",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "defaultCharacter",
+          "type": {
+            "defined": "Character"
+          }
+        }
+      ]
+    },
+    {
+      "name": "attackBoss",
+      "accounts": [
+        {
+          "name": "baseAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        }
+      ],
+      "args": [
+        {
+          "name": "damage",
+          "type": "u64"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "BaseAccount",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "bossName",
+            "type": "string"
+          },
+          {
+            "name": "imageLink",
+            "type": "string"
+          },
+          {
+            "name": "hp",
+            "type": "u64"
+          },
+          {
+            "name": "maxHp",
+            "type": "u64"
+          },
+          {
+            "name": "attackDamage",
+            "type": "u64"
+          },
+          {
+            "name": "defaultCharacters",
+            "type": {
+              "vec": {
+                "defined": "Character"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "types": [
+    {
+      "name": "Character",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "characterIndex",
+            "type": "u64"
+          },
+          {
+            "name": "characterName",
+            "type": "string"
+          },
+          {
+            "name": "imageLink",
+            "type": "string"
+          },
+          {
+            "name": "hp",
+            "type": "u64"
+          },
+          {
+            "name": "maxHp",
+            "type": "u64"
+          },
+          {
+            "name": "attackDamage",
+            "type": "u64"
+          }
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "address": "BakueS4rPFQD6b7rgr7zzYC52RETpPmntTpvZcrLUao1"
+  }
+}
