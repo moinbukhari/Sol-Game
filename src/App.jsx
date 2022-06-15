@@ -12,7 +12,7 @@ import idl from './idl.json';
 import {Connection, PublicKey, clusterApiUrl} from '@solana/web3.js';
 import kp from './keypair.json'
 
-import {Program, Provider, web3, BN} from '@project-serum/anchor';
+import {Program, Provider, web3, BN, getProvider} from '@project-serum/anchor';
 
 
 
@@ -108,7 +108,7 @@ const App = () => {
     if (isLoading) {
       return <LoadingIndicator />;
     }
-    if (boss === null) {
+    if (boss === null && walletAddress) {
       return (
         <div className="connected-container">
           <button className="cta-button submit-gif-button" onClick={initialise}>
@@ -139,6 +139,7 @@ const App = () => {
 
       console.log("Yooooooooooooooooooooo")
       console.log(window.solana)
+      console.log("Got the Boss", boss)
       //return <h2>Hello</h2>;
       //return <CandyMachine walletAddress={window.solana} />;
       return  <Arena boss={boss} setBoss={setBoss} />;
